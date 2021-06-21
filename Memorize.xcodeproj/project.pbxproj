@@ -11,6 +11,7 @@
 		EE28F891267B31AD00E79848 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE28F890267B31AD00E79848 /* ContentView.swift */; };
 		EE28F893267B31AF00E79848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE28F892267B31AF00E79848 /* Assets.xcassets */; };
 		EE28F896267B31AF00E79848 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE28F895267B31AF00E79848 /* Preview Assets.xcassets */; };
+		EE28F89E267B794F00E79848 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE28F89D267B794F00E79848 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		EE28F892267B31AF00E79848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE28F895267B31AF00E79848 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE28F897267B31AF00E79848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE28F89D267B794F00E79848 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				EE28F892267B31AF00E79848 /* Assets.xcassets */,
 				EE28F897267B31AF00E79848 /* Info.plist */,
 				EE28F894267B31AF00E79848 /* Preview Content */,
+				EE28F89D267B794F00E79848 /* CardView.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE28F891267B31AD00E79848 /* ContentView.swift in Sources */,
+				EE28F89E267B794F00E79848 /* CardView.swift in Sources */,
 				EE28F88F267B31AD00E79848 /* MemorizeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,9 +271,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Memorize/Preview Content\"";
-				DEVELOPMENT_TEAM = A8UB7LJGV7;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -279,6 +283,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.standford.cs193p.prosper.Memorize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,9 +294,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Memorize/Preview Content\"";
-				DEVELOPMENT_TEAM = A8UB7LJGV7;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -301,6 +306,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.standford.cs193p.prosper.Memorize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
