@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EmojiMemoryGameView.swift
 //  Memorize
 //
 //  Created by Hongxing Liao on 2021/6/17.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var viewModel: EmojiMemoryGame
+struct EmojiMemoryGameView: View {
+    @ObservedObject var game: EmojiMemoryGame
     
     init(viewModel: EmojiMemoryGame = EmojiMemoryGame()) {
-        self.viewModel = viewModel
+        self.game = viewModel
     }
     
     var body: some View {
@@ -26,19 +26,19 @@ struct ContentView: View {
             .padding(.horizontal)
             Spacer()
             HStack {
-                Text("\(viewModel.theme.name)")
+                Text("\(game.theme.name)")
                     .font(.largeTitle)
-                Text("\(viewModel.score)")
+                Text("\(game.score)")
                     .font(.largeTitle)
             }
             Spacer()
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: widthThatBestFits(cardCount: viewModel.cards.count)))]) {
-                    ForEach(viewModel.cards) { card in
-                        CardView(card: card, color: viewModel.color, color2: viewModel.color2)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: widthThatBestFits(cardCount: game.cards.count)))]) {
+                    ForEach(game.cards) { card in
+                        CardView(card: card, color: game.color, color2: game.color2)
                             .aspectRatio(2/3, contentMode: .fit)
                             .onTapGesture {
-                                viewModel.choose(card)
+                                game.choose(card)
                             }
                     }
                 }
@@ -66,7 +66,7 @@ struct ContentView: View {
     
     var start: some View {
         Button {
-            viewModel.startNewGame()
+            game.startNewGame()
         } label: {
             //Image(systemName: "calendar.badge.plus")
             Text("New Game")
@@ -76,7 +76,7 @@ struct ContentView: View {
     
     var restart: some View {
         Button {
-            viewModel.restartGame()
+            game.restartGame()
         } label: {
 //            Image(systemName: "restart.circle")
             Text("Restart")
@@ -130,10 +130,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        EmojiMemoryGameView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("12 Pro Max")
-        ContentView()
+        EmojiMemoryGameView()
             .preferredColorScheme(.dark)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("12 Pro Max Dark")

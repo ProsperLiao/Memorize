@@ -38,7 +38,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: MemoryGame<String>.Card(content: "1", id: 1), color: .red)
+        CardView(card: EmojiMemoryGame.Card(content: "1", id: 1), color: .red)
     }
 }
 
