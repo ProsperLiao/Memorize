@@ -32,18 +32,18 @@ struct EmojiMemoryGameView: View {
                     .font(.largeTitle)
             }
             Spacer()
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: widthThatBestFits(cardCount: game.cards.count)))]) {
-                    ForEach(game.cards) { card in
-                        CardView(card: card, color: game.color, color2: game.color2)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .onTapGesture {
-                                game.choose(card)
-                            }
+            AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in
+                CardView(card: card, color: game.color, color2: game.color2)
+                    .padding(4)
+                    .onTapGesture {
+                        game.choose(card)
                     }
-                }
-                .foregroundColor(.red)
-            }
+            })
+                        
+//                    }
+//                }
+//                .foregroundColor(.red)
+//            }
             
 //            Spacer()
 //            HStack {
