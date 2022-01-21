@@ -10,8 +10,8 @@ import SwiftUI
 struct CardView: View {
     var card: MemoryGame<String>.Card
     
-    var color: Color
-    var color2: Color?
+    var color: Color  // 前景色
+    var color2: Color?  // 前景色的线性渐变
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,6 +20,7 @@ struct CardView: View {
                 if card.isFaceUp {
                     shape.fill().foregroundColor(.white)
                     shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
+                    Pie(startAngle: Angle(degrees: -90), endAngle: Angle(degrees:  -250 - 90)).padding(DrawingConstants.piePadding).opacity(DrawingConstants.pieOpacity)
                     Text(card.content).font(font(in: geometry.size))
                 } else if card.isMatched {
                     shape.opacity(0)
@@ -29,11 +30,11 @@ struct CardView: View {
                             
                     } else {
                         shape.fill()
-                            .foregroundColor(color)
+                           
                     }
                     
                 }
-            }
+            }.foregroundColor(color)
         }
     }
     
@@ -43,14 +44,16 @@ struct CardView: View {
     
     private struct DrawingConstants {
         static let cornerRadius: CGFloat = 10
-        static let fontSizeScale: CGFloat = 0.75
+        static let fontSizeScale: CGFloat = 0.7
         static let lineWidth: CGFloat = 3
+        static let piePadding: CGFloat = 7
+        static let pieOpacity: CGFloat = 0.5
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: EmojiMemoryGame.Card(content: "1", id: 1), color: .red)
+        CardView(card: EmojiMemoryGame.Card(content: "😀", isFaceUp: true, id: 1), color: .red)
     }
 }
 

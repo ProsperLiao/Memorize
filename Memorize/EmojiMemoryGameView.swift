@@ -130,12 +130,14 @@ struct EmojiMemoryGameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiMemoryGameView()
+        let game = EmojiMemoryGame()
+        game.choose(game.cards.first!)
+        return EmojiMemoryGameView(viewModel: game)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("12 Pro Max")
-        EmojiMemoryGameView()
-            .preferredColorScheme(.dark)
-            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
-            .previewDisplayName("12 Pro Max Dark")
+//        EmojiMemoryGameView(viewModel: game)
+//            .preferredColorScheme(.dark)
+//            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+//            .previewDisplayName("12 Pro Max Dark")
     }
 }
