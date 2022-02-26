@@ -27,6 +27,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2 + 1))
         }
+        shuffle()
+    }
+    
+    mutating func shuffle() {
         cards.shuffle()
     }
     
@@ -77,10 +81,82 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     struct Card: Identifiable {
         let content: CardContent
-        var isFaceUp = false
-        var isMatched = false
+        var isFaceUp = false {
+            didSet {
+                if isFaceUp {
+                    startConsumeBonusTime()
+                } else {
+                    stopConsumeBonusTime()
+                }
+            }
+        }
+        var isMatched = false {
+            didSet {
+                if isMatched {
+                    stopConsumeBonusTime()
+                }
+            }
+        }
         var isSeen = false
         let id: Int
+        
+        // MARK: - Bonus Time
+        // 在卡片翻面后，
+        // 如果玩家在限制时间内配对成功，
+        // 则可获得额外的奖励分数.
+        // 配对消耗时间越少，获得分数越高，
+        // 时间耗尽，奖励分数为零.
+        
+        // 奖励分的限时，如果设值为零时，表示不使用奖励
+        var bonusTimeLimit: TimeInterval = 6
+        
+        // 被翻面(当前面朝上)的时间点, 非nil时表示当前面朝上
+        var lastFaceUpDate: Date?
+        
+        // 过去被翻面的累计总时长，不包括当前正在翻面的时间
+        var pastFaceUpTime: TimeInterval = 0
+        
+        // 卡片面朝上所累计的总时长， 包括当前面朝上的的时长
+        private var faceUpTime: TimeInterval {
+            if let lastFaceUpDate = self.lastFaceUpDate {
+                return pastFaceUpTime + Date().timeIntervalSince(lastFaceUpDate)
+            } else {
+                return pastFaceUpTime
+            }
+        }
+        
+        // 剩余的奖励时长
+        var bonusTimeRemaining: TimeInterval {
+            max(0, bonusTimeLimit - faceUpTime)
+        }
+        
+        //剩余的奖励百分比
+        var bonusRemaining: Double {
+            bonusTimeLimit > 0 ? bonusTimeRemaining/bonusTimeLimit : 0
+        }
+        
+        // 是否赚取奖励(在奖励时限内配对成功)
+        var hasEarnedBonus: Bool {
+            isMatched && bonusTimeRemaining > 0
+        }
+        
+        // 当前是否面朝上，及未配对，且未用尽奖励时间窗口
+        var isConsumingBonusTime: Bool {
+            isFaceUp && !isMatched && bonusTimeRemaining > 0
+        }
+        
+        // 开始计时
+        private mutating func startConsumeBonusTime() {
+            if isConsumingBonusTime, lastFaceUpDate == nil {
+                lastFaceUpDate = Date()
+            }
+        }
+        
+        // 停止计时
+        private mutating func stopConsumeBonusTime() {
+            pastFaceUpTime = faceUpTime
+            self.lastFaceUpDate = nil
+        }
     }
 }
 

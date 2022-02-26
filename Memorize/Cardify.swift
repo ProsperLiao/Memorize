@@ -8,29 +8,28 @@
 import SwiftUI
 
 struct Cardify: ViewModifier  {
-    
     var isFaceUp: Bool
+    
     var color: Color  // 前景色
     var color2: Color?  // 前景色的线性渐变
     
     func body(content: Content) -> some View {
-            ZStack {
-                let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
-                if isFaceUp {
-                    shape.fill().foregroundColor(.white)
-                    shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
-                    content
-                } else {
-                    if let color2 = color2 {
-                        shape.fill(LinearGradient.init(colors: [color, color2], startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
-                            
-                    } else {
-                        shape.fill()
-                           
-                    }
-                    
-                }
-            }.foregroundColor(color)
+        FlipView(front: {
+            let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
+            
+            shape.fill().foregroundColor(.white)
+            shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
+            content
+        }, back: {
+            let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
+            
+            if let color2 = color2 {
+                shape.fill(LinearGradient.init(colors: [color, color2], startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+            } else {
+                shape.fill()
+            }
+        }, showBack: !isFaceUp)
+            .foregroundColor(color)
     }
     
     private struct DrawingConstants {

@@ -76,6 +76,10 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     // MARK: - Intent(s)
+    func shuffle() {
+        model.shuffle()
+    }
+    
     func choose(_ card: Card) {
         model.choose(card)
     }
@@ -85,7 +89,7 @@ class EmojiMemoryGame: ObservableObject {
         model = EmojiMemoryGame.createMemoryGame(with: currentTheme)
     }
     
-    func restartGame() {
+    func restart() {
         model = EmojiMemoryGame.createMemoryGame(with: currentTheme)
     }
     

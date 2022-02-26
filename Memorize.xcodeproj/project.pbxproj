@@ -13,6 +13,7 @@
 		EE28F896267B31AF00E79848 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE28F895267B31AF00E79848 /* Preview Assets.xcassets */; };
 		EE28F89E267B794F00E79848 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE28F89D267B794F00E79848 /* CardView.swift */; };
 		EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4927BA6550004A7639 /* Cardify.swift */; };
+		EEB25F4C27C268F3004A7639 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4B27C268F3004A7639 /* FlipView.swift */; };
 		EEDD6EB2278D08080057C4F4 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD6EB1278D08080057C4F4 /* AspectVGrid.swift */; };
 		EEDD6EB6279A200B0057C4F4 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD6EB5279A200B0057C4F4 /* Pie.swift */; };
 		EEE99268270941840062156A /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE99267270941840062156A /* MemoryGame.swift */; };
@@ -29,6 +30,7 @@
 		EE28F897267B31AF00E79848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE28F89D267B794F00E79848 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EEB25F4927BA6550004A7639 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		EEB25F4B27C268F3004A7639 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		EEDD6EB1278D08080057C4F4 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		EEDD6EB5279A200B0057C4F4 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		EEE99267270941840062156A /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB25F4927BA6550004A7639 /* Cardify.swift */,
+				EEB25F4B27C268F3004A7639 /* FlipView.swift */,
 				EE28F88E267B31AD00E79848 /* MemorizeApp.swift */,
 				EE28F890267B31AD00E79848 /* EmojiMemoryGameView.swift */,
 				EEDD6EB5279A200B0057C4F4 /* Pie.swift */,
@@ -164,6 +167,7 @@
 				EEDD6EB6279A200B0057C4F4 /* Pie.swift in Sources */,
 				EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */,
 				EEDD6EB2278D08080057C4F4 /* AspectVGrid.swift in Sources */,
+				EEB25F4C27C268F3004A7639 /* FlipView.swift in Sources */,
 				EE28F89E267B794F00E79848 /* CardView.swift in Sources */,
 				EEE9926C270B3DAC0062156A /* Theme.swift in Sources */,
 				EE28F88F267B31AD00E79848 /* MemorizeApp.swift in Sources */,
