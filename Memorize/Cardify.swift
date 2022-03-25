@@ -10,8 +10,7 @@ import SwiftUI
 struct Cardify: ViewModifier  {
     var isFaceUp: Bool
     
-    var color: Color  // 前景色
-    var color2: Color?  // 前景色的线性渐变
+    var color: ThemeColor
     
     func body(content: Content) -> some View {
         FlipView(front: {
@@ -23,13 +22,13 @@ struct Cardify: ViewModifier  {
         }, back: {
             let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
             
-            if let color2 = color2 {
-                shape.fill(LinearGradient.init(colors: [color, color2], startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+            if let fillStyle = color.fillStyle {
+                shape.fill(fillStyle)
             } else {
-                shape.fill()
+                shape.fill(color.forgroundColor)
             }
         }, showBack: !isFaceUp)
-            .foregroundColor(color)
+            .foregroundColor(color.forgroundColor)
     }
     
     private struct DrawingConstants {
@@ -39,8 +38,8 @@ struct Cardify: ViewModifier  {
 }
 
 extension View {
-    func cardify(isFaceUp: Bool, color: Color = .red, color2: Color? = nil) -> some View {
-        self.modifier(Cardify(isFaceUp: isFaceUp, color: color, color2: color2))
+    func cardify(isFaceUp: Bool, color: ThemeColor = .plain("red")) -> some View {
+        self.modifier(Cardify(isFaceUp: isFaceUp, color: color))
     }
     
 }

@@ -5,13 +5,12 @@
 //  Created by Hongxing Liao on 2021/10/3.
 //
 
+import Foundation
 
 // View Model
-import Foundation
-import UIKit
-import SwiftUI
-
 class EmojiMemoryGame: ObservableObject {
+    @Published private var model: MemoryGame<String>
+    
     typealias Card = MemoryGame<String>.Card
     
     private static func createMemoryGame(with theme: Theme, numberOfPairOfCard: Int? = nil) -> MemoryGame<String> {
@@ -27,15 +26,18 @@ class EmojiMemoryGame: ObservableObject {
         }
     }
     
-    init() {
-        let theme = Theme.themes.randomElement()!
-        currentTheme = theme
+    init(with theme: Theme) {
+        self.theme = theme
         model = EmojiMemoryGame.createMemoryGame(with: theme)
     }
     
-    @Published private var currentTheme: Theme
-    
-    @Published private var model: MemoryGame<String>
+    var theme: Theme {
+        didSet {
+            if oldValue != theme {
+                restart()
+            }
+        }
+    }
     
     var cards: [Card] {
         model.cards
@@ -45,35 +47,21 @@ class EmojiMemoryGame: ObservableObject {
         model.score
     }
     
-    var theme: Theme {
-        return currentTheme
+    var color: ThemeColor {
+        return theme.color
     }
     
-    var color: Color {
-        return parseColor(currentTheme.color)
+    @Published private var dealt = Set<Int>()
+    
+    
+    func deal(_ card: EmojiMemoryGame.Card) {
+        dealt.insert(card.id)
     }
     
-    var color2: Color? {
-        guard let color = currentTheme.color2 else {
-            return nil
-        }
-        return parseColor(color)
+    func isUnDealt(_ card: EmojiMemoryGame.Card) -> Bool {
+        !dealt.contains(card.id)
     }
-    
-    private func parseColor(_ color: String) -> Color {
-        switch color {
-        case "yellow":
-            return .yellow
-        case "blue":
-            return .blue
-        case "green":
-            return .green
-        case "purple":
-            return .purple
-        default:
-            return .red
-        }
-    }
+
     
     // MARK: - Intent(s)
     func shuffle() {
@@ -83,17 +71,9 @@ class EmojiMemoryGame: ObservableObject {
     func choose(_ card: Card) {
         model.choose(card)
     }
-    
-    func startNewGame() {
-        currentTheme = Theme.themes.randomElement()!
-        model = EmojiMemoryGame.createMemoryGame(with: currentTheme)
-    }
-    
-    func restart() {
-        model = EmojiMemoryGame.createMemoryGame(with: currentTheme)
-    }
-    
-    func chooseTheme() {
         
+    func restart() {
+        model = EmojiMemoryGame.createMemoryGame(with: theme)
+        dealt = []
     }
 }

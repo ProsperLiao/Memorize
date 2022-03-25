@@ -10,8 +10,7 @@ import SwiftUI
 struct CardView: View {
     var card: MemoryGame<String>.Card
     
-    var color: Color  // 前景色
-    var color2: Color?  // 前景色的线性渐变
+    var color: ThemeColor
     
     @State private var animatedBonusRemaining: Double = 0
     
@@ -34,7 +33,7 @@ struct CardView: View {
                     .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
                     .font(Font.system(size: DrawingConstants.fontSize))
                     .scaleEffect(scale(thatFits: geometry.size))
-            }.cardify(isFaceUp: card.isFaceUp, color: color, color2: color2)
+            }.cardify(isFaceUp: card.isFaceUp, color: color)
         }
     }
     
@@ -52,7 +51,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: EmojiMemoryGame.Card(content: "😀", isFaceUp: true, id: 1), color: .red)
+        CardView(card: EmojiMemoryGame.Card(content: "😀", isFaceUp: true, id: 1), color: .plain("red"))
     }
 }
 
