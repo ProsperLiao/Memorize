@@ -14,7 +14,7 @@ class EmojiMemoryGame: ObservableObject {
     typealias Card = MemoryGame<String>.Card
     
     private static func createMemoryGame(with theme: Theme, numberOfPairOfCard: Int? = nil) -> MemoryGame<String> {
-        var numberOfPair = numberOfPairOfCard ?? (theme.defaultNumberOfPair ?? Int.random(in: 0..<theme.emojis.count))
+        var numberOfPair = numberOfPairOfCard ?? theme.numberOfPairOfCards
         if numberOfPair < 0 {
             numberOfPair = 0
         }
@@ -22,7 +22,7 @@ class EmojiMemoryGame: ObservableObject {
         
         let emojis = theme.emojis.shuffled()
         return MemoryGame<String>(numberOfCards: numberOfPair) { pairIndex in
-            emojis[pairIndex]
+            String(emojis[pairIndex])
         }
     }
     

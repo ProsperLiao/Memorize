@@ -38,7 +38,7 @@ struct Cardify: ViewModifier  {
 }
 
 extension View {
-    func cardify(isFaceUp: Bool, color: ThemeColor = .plain("red")) -> some View {
+    func cardify(isFaceUp: Bool, color: ThemeColor = ThemeColor(first: Color(UIColor.red))) -> some View {
         self.modifier(Cardify(isFaceUp: isFaceUp, color: color))
     }
     

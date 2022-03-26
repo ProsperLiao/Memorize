@@ -15,26 +15,34 @@ struct ThemeChooser: View {
     
     @State private var lastChoosenTheme: Theme?
     
+    @State private var editMode: EditMode = .inactive
+    
+    @State private var themeToEdit: Theme?
+    
     var body: some View {
         List {
             ForEach(store.themes) { theme in
-                let row = NavigationLink {
-                    destination(for: theme)
+                let row = NavigationLink (
+                    destination: destination(for: theme)
                         .onAppear {
                             if (lastChoosenTheme != theme) {
-                                games[theme.id]?.restart()
+                                withAnimation {
+                                    games[theme.id]?.restart()
+                                }
                                 lastChoosenTheme = theme
                             }
                         }
-                } label: {
+                ) {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
                             Text(theme.name)
                             Spacer()
-                            Text("emojis: \(theme.emojis.count)")
+                            Text("number of cards: \(theme.numberOfPairOfCards)")
                         }
-                        Text(theme.emojis.reduce(""){ $0 + $1 })
+                        Text(theme.emojis)
                     }
+                    .gesture(editMode == .active ? tap(theme) : nil)
+                    
                 }
                 
                 if let fillStyle = theme.color.fillStyle {
@@ -43,11 +51,40 @@ struct ThemeChooser: View {
                     row.listRowBackground(theme.color.forgroundColor)
                 }
             }
+            .onDelete { indexSet in
+                store.themes.remove(atOffsets: indexSet)
+            }
         }
-            .listStyle(PlainListStyle())
-            .navigationTitle("Emoji Theme List")
-            .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $themeToEdit) {
+            if let theme = lastChoosenTheme {
+                withAnimation {
+                    games[theme.id]?.theme = store.themes[theme]
+                }
+            }
+        } content: { themeToEdit in
+            ThemeEditor(theme: $store.themes[themeToEdit])
+        }
+        .listStyle(PlainListStyle())
+        .navigationTitle("Emoji Theme List")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(leading: addButton, trailing: EditButton())
+        .environment(\.editMode, $editMode)
         
+    }
+    
+    private var addButton: some View {
+        Button {
+            themeToEdit = store.insertTheme(name: "New", emojis: "", color: ThemeColor(first: Color(UIColor.red)))
+        } label: {
+            Image(systemName: "plus")
+        }
+        
+    }
+    
+    private func tap(_ theme: Theme) -> some Gesture {
+        TapGesture().onEnded {
+            themeToEdit = theme
+        }
     }
     
     private func destination(for theme: Theme) -> some View {
@@ -55,7 +92,9 @@ struct ThemeChooser: View {
             return EmojiMemoryGameView(viewModel: game)
         } else {
             let game = EmojiMemoryGame(with: theme)
-            games[theme.id] = game
+            DispatchQueue.main.async {
+                games.updateValue(game, forKey: theme.id)
+            }
             return EmojiMemoryGameView(viewModel: game)
         }
     }

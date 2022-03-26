@@ -14,6 +14,8 @@
 		EE28F89E267B794F00E79848 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE28F89D267B794F00E79848 /* CardView.swift */; };
 		EE429E6E27E9B272001398D9 /* ThemeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE429E6D27E9B272001398D9 /* ThemeChooser.swift */; };
 		EE429E7027E9B542001398D9 /* ThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE429E6F27E9B542001398D9 /* ThemeStore.swift */; };
+		EE927D2E27EDB4940058D01D /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D2D27EDB4940058D01D /* ThemeEditor.swift */; };
+		EE927D3427EDBD4A0058D01D /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */; };
 		EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4927BA6550004A7639 /* Cardify.swift */; };
 		EEB25F4C27C268F3004A7639 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4B27C268F3004A7639 /* FlipView.swift */; };
 		EEDD6EB2278D08080057C4F4 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD6EB1278D08080057C4F4 /* AspectVGrid.swift */; };
@@ -32,6 +34,8 @@
 		EE28F89D267B794F00E79848 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EE429E6D27E9B272001398D9 /* ThemeChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooser.swift; sourceTree = "<group>"; };
 		EE429E6F27E9B542001398D9 /* ThemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeStore.swift; sourceTree = "<group>"; };
+		EE927D2D27EDB4940058D01D /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
+		EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		EEB25F4927BA6550004A7639 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		EEB25F4B27C268F3004A7639 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		EEDD6EB1278D08080057C4F4 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 		EE28F882267B31AC00E79848 = {
 			isa = PBXGroup;
 			children = (
+				EE927D3227EDBD2D0058D01D /* Utility */,
 				EE28F88D267B31AD00E79848 /* Memorize */,
 				EE28F88C267B31AD00E79848 /* Products */,
 			);
@@ -80,6 +85,7 @@
 				EEE99267270941840062156A /* MemoryGame.swift */,
 				EEE99269270945260062156A /* EmojiMemoryGame.swift */,
 				EE429E6D27E9B272001398D9 /* ThemeChooser.swift */,
+				EE927D2D27EDB4940058D01D /* ThemeEditor.swift */,
 				EE429E6F27E9B542001398D9 /* ThemeStore.swift */,
 				EE28F892267B31AF00E79848 /* Assets.xcassets */,
 				EE28F897267B31AF00E79848 /* Info.plist */,
@@ -94,6 +100,14 @@
 				EE28F895267B31AF00E79848 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE927D3227EDBD2D0058D01D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +181,7 @@
 			files = (
 				EE28F891267B31AD00E79848 /* EmojiMemoryGameView.swift in Sources */,
 				EE429E6E27E9B272001398D9 /* ThemeChooser.swift in Sources */,
+				EE927D3427EDBD4A0058D01D /* UtilityExtensions.swift in Sources */,
 				EEE9926A270945260062156A /* EmojiMemoryGame.swift in Sources */,
 				EEDD6EB6279A200B0057C4F4 /* Pie.swift in Sources */,
 				EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */,
@@ -175,6 +190,7 @@
 				EE429E7027E9B542001398D9 /* ThemeStore.swift in Sources */,
 				EE28F89E267B794F00E79848 /* CardView.swift in Sources */,
 				EE28F88F267B31AD00E79848 /* MemorizeApp.swift in Sources */,
+				EE927D2E27EDB4940058D01D /* ThemeEditor.swift in Sources */,
 				EEE99268270941840062156A /* MemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

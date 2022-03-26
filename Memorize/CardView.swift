@@ -51,7 +51,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: EmojiMemoryGame.Card(content: "😀", isFaceUp: true, id: 1), color: .plain("red"))
+        CardView(card: EmojiMemoryGame.Card(content: "😀", isFaceUp: true, id: 1), color: ThemeColor(first: Color(UIColor.red)))
     }
 }
 
