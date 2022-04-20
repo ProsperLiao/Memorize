@@ -14,6 +14,8 @@
 		EE28F89E267B794F00E79848 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE28F89D267B794F00E79848 /* CardView.swift */; };
 		EE429E6E27E9B272001398D9 /* ThemeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE429E6D27E9B272001398D9 /* ThemeChooser.swift */; };
 		EE429E7027E9B542001398D9 /* ThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE429E6F27E9B542001398D9 /* ThemeStore.swift */; };
+		EE85831628100D2D001812FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE85831428100D2D001812FF /* InfoPlist.strings */; };
+		EE85831928100D63001812FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE85831728100D63001812FF /* Localizable.strings */; };
 		EE927D2E27EDB4940058D01D /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D2D27EDB4940058D01D /* ThemeEditor.swift */; };
 		EE927D3427EDBD4A0058D01D /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */; };
 		EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4927BA6550004A7639 /* Cardify.swift */; };
@@ -35,6 +37,9 @@
 		EE28F89D267B794F00E79848 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EE429E6D27E9B272001398D9 /* ThemeChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooser.swift; sourceTree = "<group>"; };
 		EE429E6F27E9B542001398D9 /* ThemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeStore.swift; sourceTree = "<group>"; };
+		EE85831528100D2D001812FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE85831828100D63001812FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EE85831A28100EF4001812FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		EE927D2D27EDB4940058D01D /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
 		EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		EEB25F4927BA6550004A7639 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
@@ -90,7 +95,8 @@
 				EE927D2D27EDB4940058D01D /* ThemeEditor.swift */,
 				EE429E6F27E9B542001398D9 /* ThemeStore.swift */,
 				EE28F892267B31AF00E79848 /* Assets.xcassets */,
-				EE28F897267B31AF00E79848 /* Info.plist */,
+				EE85831728100D63001812FF /* Localizable.strings */,
+				EE85831428100D2D001812FF /* InfoPlist.strings */,
 				EE28F894267B31AF00E79848 /* Preview Content */,
 			);
 			path = Memorize;
@@ -154,6 +160,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = EE28F882267B31AC00E79848;
 			productRefGroup = EE28F88C267B31AD00E79848 /* Products */;
@@ -171,6 +178,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE28F896267B31AF00E79848 /* Preview Assets.xcassets in Resources */,
+				EE85831928100D63001812FF /* Localizable.strings in Resources */,
+				EE85831628100D2D001812FF /* InfoPlist.strings in Resources */,
 				EE28F893267B31AF00E79848 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +209,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE85831428100D2D001812FF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE85831528100D2D001812FF /* en */,
+				EE85831A28100EF4001812FF /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE85831728100D63001812FF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE85831828100D63001812FF /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EE28F898267B31AF00E79848 /* Debug */ = {
@@ -259,6 +288,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -313,6 +343,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

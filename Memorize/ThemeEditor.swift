@@ -25,7 +25,7 @@ struct ThemeEditor: View {
                 removedEmojisSection
             }
             .navigationBarItems(trailing: close)
-            .navigationTitle("Edit \(theme.name)")
+            .navigationTitle(LocalizedStringKey("Edit \(theme.name)"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -44,7 +44,7 @@ struct ThemeEditor: View {
         Section {
             TextField("", text: $theme.name)
         } header: {
-            Text("Name")
+            Text("Name", comment: "theme's name")
         }
     }
     
@@ -55,7 +55,7 @@ struct ThemeEditor: View {
                     addEmojis(emojisToAdd)
                 }
         } header: {
-            Text("Add Emojis")
+            Text("Add Emojis", comment: "Add Emojis field title")
         }
     }
     
@@ -76,7 +76,7 @@ struct ThemeEditor: View {
             }
             .font(.system(size: 40))
         } header: {
-            Text("Emojis")
+            Text("Emojis", comment: "Emojis field title")
         }
     }
     
@@ -95,26 +95,26 @@ struct ThemeEditor: View {
             }
             .font(.system(size: 40))
         } header: {
-            Text("Removed Emojis")
+            Text("Removed Emojis", comment: "Removed Emojis field title")
         }
     }
     
     var colorSection: some View {
         Section {
             Toggle(isOn: $theme.color.isLinearGradient) {
-                Text("Linear Gradient")
+                Text("Linear Gradient", comment: "toggle for using linear gradient")
             }
-            ColorPicker("First", selection: $theme.color.first)
+            ColorPicker(LocalizedStringKey("First"), selection: $theme.color.first)
             
             if theme.color.isLinearGradient {
-                ColorPicker("Second", selection: $theme.color.second)
+                ColorPicker(LocalizedStringKey("Second"), selection: $theme.color.second)
                 let linearGradient = LinearGradient(colors: [theme.color.first, theme.color.second], startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 1))
                 Rectangle().fill(linearGradient)
             } else {
                 Rectangle().fill(theme.color.first)
             }
         } header: {
-            Text("Color")
+            Text("Color", comment: "Color field title")
         }
     }
     
@@ -129,7 +129,7 @@ struct ThemeEditor: View {
                 Text("\(theme.numberOfPairOfCards)")
             }
         } header: {
-            Text("Number of Pair of Cards:")
+            Text("Number of Pair of Cards:", comment: "field name for number of pair of cards")
         }
     }
     

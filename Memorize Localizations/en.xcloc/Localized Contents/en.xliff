@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Memorize/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.3.1" build-num="13E500a"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Memorize</source>
+        <target>Emoji Match</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Memorize/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.3.1" build-num="13E500a"/>
+    </header>
+    <body>
+      <trans-unit id="%@" xml:space="preserve">
+        <source>%@</source>
+        <target>%@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%@%lld" xml:space="preserve">
+        <source>%@%lld</source>
+        <target>%@%lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <target>%lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add Emojis" xml:space="preserve">
+        <source>Add Emojis</source>
+        <target>Add Emojis</target>
+        <note>Add Emojis field title</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Color" xml:space="preserve">
+        <source>Color</source>
+        <target>Color</target>
+        <note>Color field title</note>
+      </trans-unit>
+      <trans-unit id="Confirm to Restart?" xml:space="preserve">
+        <source>Confirm to Restart?</source>
+        <target>Confirm to Restart?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit %@" xml:space="preserve">
+        <source>Edit %@</source>
+        <target>Edit %@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Emoji Theme List" xml:space="preserve">
+        <source>Emoji Theme List</source>
+        <target>Emoji Theme List</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Emojis" xml:space="preserve">
+        <source>Emojis</source>
+        <target>Emojis</target>
+        <note>Emojis field title</note>
+      </trans-unit>
+      <trans-unit id="First" xml:space="preserve">
+        <source>First</source>
+        <target>First</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Linear Gradient" xml:space="preserve">
+        <source>Linear Gradient</source>
+        <target>Linear Gradient</target>
+        <note>toggle for using linear gradient</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>theme's name</note>
+      </trans-unit>
+      <trans-unit id="Number of Pair of Cards:" xml:space="preserve">
+        <source>Number of Pair of Cards:</source>
+        <target>Number of Pair of Cards:</target>
+        <note>field name for number of pair of cards</note>
+      </trans-unit>
+      <trans-unit id="OK" xml:space="preserve">
+        <source>OK</source>
+        <target>OK</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please select theme" xml:space="preserve">
+        <source>Please select theme</source>
+        <target>Please select theme</target>
+        <note>Tip for user to select a theme when start this app</note>
+      </trans-unit>
+      <trans-unit id="Removed Emojis" xml:space="preserve">
+        <source>Removed Emojis</source>
+        <target>Removed Emojis</target>
+        <note>Removed Emojis field title</note>
+      </trans-unit>
+      <trans-unit id="Second" xml:space="preserve">
+        <source>Second</source>
+        <target>Second</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="number of cards: %lld" xml:space="preserve">
+        <source>number of cards: %lld</source>
+        <target>number of cards: %lld</target>
+        <note>how much of pairs of cards of the theme</note>
+      </trans-unit>
+      <trans-unit id="score:" xml:space="preserve">
+        <source>score:</source>
+        <target>score:</target>
+        <note>game body view header score:</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

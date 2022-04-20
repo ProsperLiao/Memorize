@@ -1,0 +1,48 @@
+/* Add Emojis field title */
+"Add Emojis" = "添加emojis";
+
+/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* Color field title */
+"Color" = "颜色";
+
+/* No comment provided by engineer. */
+"Confirm to Restart?" = "确定重新开始？";
+
+/* No comment provided by engineer. */
+"Edit %@" = "编辑 %@";
+
+/* No comment provided by engineer. */
+"Emoji Theme List" = "emoji 主题列表";
+
+/* No comment provided by engineer. */
+"First" = "主要颜色";
+
+/* toggle for using linear gradient */
+"Linear Gradient" = "线性渐变色";
+
+/* theme's name */
+"Name" = "名称";
+
+/* how much of pairs of cards of the theme */
+"number of cards: %lld" = "卡片数: %lld";
+
+/* field name for number of pair of cards */
+"Number of Pair of Cards:" = "卡片组数目：";
+
+/* No comment provided by engineer. */
+"OK" = "确定";
+
+/* Tip for user to select a theme when start this app */
+"Please select theme" = "请选择emoji主题";
+
+/* Removed Emojis field title */
+"Removed Emojis" = "被移除的emojis";
+
+/* game body view header score: */
+"score:" = "分数:";
+
+/* No comment provided by engineer. */
+"Second" = "次要颜色";
+

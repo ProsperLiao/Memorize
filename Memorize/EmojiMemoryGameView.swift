@@ -42,14 +42,14 @@ struct EmojiMemoryGameView: View {
             shuffle
             restart
         })
-        .alert("Confirm to Restart?", isPresented: $restartAlertShown) {
+        .alert(LocalizedStringKey("Confirm to Restart?"), isPresented: $restartAlertShown) {
             Button("OK") {
                 withAnimation {
                     score = 0
                     game.restart()
                 }
             }
-            Button("Cancel", role: .cancel) {
+            Button(LocalizedStringKey("Cancel"), role: .cancel) {
                 restartAlertShown = false
             }
         }
@@ -75,7 +75,7 @@ struct EmojiMemoryGameView: View {
 
     var scoreArea: some View {
         HStack {
-            Text("score:")
+            Text("score:", comment: "game body view header score:")
             Text("\(score)")
                 .frame(minWidth: 30)
                 .foregroundColor(score < 0 ? .red : .blue)
@@ -176,6 +176,7 @@ struct ContentView_Previews: PreviewProvider {
         return EmojiMemoryGameView(viewModel: game)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("12 Pro Max")
+            .environment(\.locale, .init(identifier: "zh-Hans"))
 //        EmojiMemoryGameView(viewModel: game)
 //            .preferredColorScheme(.dark)
 //            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))

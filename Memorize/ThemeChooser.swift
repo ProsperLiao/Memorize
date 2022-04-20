@@ -72,7 +72,7 @@ struct ThemeChooser: View {
             ThemeEditor(theme: $store.themes[themeToEdit])
         }
         .listStyle(PlainListStyle())
-        .navigationTitle("Emoji Theme List")
+        .navigationTitle(LocalizedStringKey("Emoji Theme List"))
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(leading: editMode == .active ? nil : addButton, trailing: EditButton())
         .environment(\.editMode, $editMode)
@@ -125,7 +125,7 @@ struct ThemeChooser: View {
             }
             VStack(alignment: .leading, spacing: 10) {
                 Text(theme.name).font(.headline)
-                Text("number of cards: \(theme.numberOfPairOfCards)").font(.caption)
+                Text("number of cards: \(theme.numberOfPairOfCards)", comment: "how much of pairs of cards of the theme").font(.caption)
                 Text(theme.emojis).lineLimit(1)
             }
             

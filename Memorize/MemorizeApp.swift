@@ -16,7 +16,7 @@ struct MemorizeApp: App {
             NavigationView {
                 ThemeChooser()
                     .environmentObject(store)
-                Text("Please select theme")
+                Text("Please select theme", comment: "Tip for user to select a theme when start this app")
                     .font(.largeTitle)
             }
         }
