@@ -13,7 +13,35 @@ struct ThemeChooser: View {
     
     @State private var games = [Int: EmojiMemoryGame]()
     
-    @State private var lastChoosenTheme: Theme?
+    @State public var lastChosenTheme: Theme? {
+        didSet {
+            withAnimation {
+                if let lastChosenTheme = lastChosenTheme, lastChosenTheme != oldValue {
+                    games[lastChosenTheme.id]?.restart()
+                }
+            }
+        }
+    }
+    
+    @State public var selectedTheme: Theme? {
+        didSet {
+            if let theme = selectedTheme {
+                lastChosenTheme = theme
+            }
+        }
+    }
+    
+    private func selectedThemeBinding() -> Binding<Theme?> {
+        let binding = Binding<Theme?>(
+            get: {
+                selectedTheme
+            },
+            set: {
+                selectedTheme = $0
+            }
+        )
+        return binding
+    }
     
     @State private var editMode: EditMode = .inactive
     
@@ -22,41 +50,20 @@ struct ThemeChooser: View {
     var body: some View {
         List {
             ForEach(store.themes) { theme in
-                let row = NavigationLink (
-                    destination: destination(for: theme)
-                        .onAppear {
-                            if (lastChoosenTheme != theme) {
-                                withAnimation {
-                                    games[theme.id]?.restart()
-                                }
-                                lastChoosenTheme = theme
-                            }
-                        }
-                ) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Text(theme.name)
-                            Spacer()
-                            Text("number of cards: \(theme.numberOfPairOfCards)")
-                        }
-                        Text(theme.emojis)
-                    }
-                    .gesture(editMode == .active ? tap(theme) : nil)
-                    
+                NavigationLink(tag: theme, selection: selectedThemeBinding(), destination: { destination(for: theme)} ) {
+                    listRow(for: theme)
                 }
-                
-                if let fillStyle = theme.color.fillStyle {
-                    row.listRowBackground(fillStyle)
-                } else {
-                    row.listRowBackground(theme.color.forgroundColor)
-                }
+                .disabled(isThemeDisabled(theme))
+                .padding(.vertical, 10)
+                .contentShape(Rectangle())
+                .gesture(editMode == .active ? tap(theme) : nil)
             }
             .onDelete { indexSet in
                 store.themes.remove(atOffsets: indexSet)
             }
         }
         .sheet(item: $themeToEdit) {
-            if let theme = lastChoosenTheme {
+            if let theme = lastChosenTheme {
                 withAnimation {
                     games[theme.id]?.theme = store.themes[theme]
                 }
@@ -67,7 +74,7 @@ struct ThemeChooser: View {
         .listStyle(PlainListStyle())
         .navigationTitle("Emoji Theme List")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(leading: addButton, trailing: EditButton())
+        .navigationBarItems(leading: editMode == .active ? nil : addButton, trailing: EditButton())
         .environment(\.editMode, $editMode)
         
     }
@@ -75,6 +82,7 @@ struct ThemeChooser: View {
     private var addButton: some View {
         Button {
             themeToEdit = store.insertTheme(name: "New", emojis: "", color: ThemeColor(first: Color(UIColor.red)))
+            lastChosenTheme = themeToEdit
         } label: {
             Image(systemName: "plus")
         }
@@ -96,6 +104,44 @@ struct ThemeChooser: View {
                 games.updateValue(game, forKey: theme.id)
             }
             return EmojiMemoryGameView(viewModel: game)
+        }
+    }
+    
+    private func isThemeDisabled(_ theme: Theme) -> Bool {
+        !(editMode == .inactive && theme.emojis.count >= Theme.minPairOfCardsCount  || editMode == .active)
+    }
+    
+    private func listRow(for theme: Theme) -> some View {
+        HStack {
+            if let lastChosenTheme = lastChosenTheme, let game = games[theme.id], theme == lastChosenTheme, game.isPlaying {
+                Rectangle()
+                    .frame(width: 8, height: 8)
+                    .foregroundColor(.green)
+                    .overlay {
+                        Rectangle()
+                            .stroke(Color.gray, lineWidth: 1)
+                    }
+                    .rotationEffect(Angle(degrees: 45))
+            }
+            VStack(alignment: .leading, spacing: 10) {
+                Text(theme.name).font(.headline)
+                Text("number of cards: \(theme.numberOfPairOfCards)").font(.caption)
+                Text(theme.emojis).lineLimit(1)
+            }
+            
+            Spacer()
+            
+            let card = RoundedRectangle(cornerRadius: 5)
+            Group {
+                if let fillStyle = theme.color.fillStyle {
+                    card.fill(fillStyle)
+                } else {
+                    card.fill(theme.color.forgroundColor)
+                }
+            }
+            .opacity(0.8)
+            .aspectRatio(2/3, contentMode: .fit)
+            .frame(height: 60)
         }
     }
 }

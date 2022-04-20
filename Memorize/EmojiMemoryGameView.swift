@@ -12,61 +12,100 @@ struct EmojiMemoryGameView: View {
     
     @Namespace private var dealingNamespace
     
+    @State private var restartAlertShown: Bool = false
+    
+    @State private var score: Int = 0
+    
+    @State private var scoreDiff: Int = 0
+    
+    @State private var scoreDiffTextOpacity: CGFloat = 0
+    @State private var scoreDiffTextScale: CGFloat = 1
+    
     init(viewModel: EmojiMemoryGame) {
         self.game = viewModel
+        score = game.score
     }
     
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                HStack {
-                    Text("score: \(game.score)").font(.largeTitle)
-                    Spacer()
-                    shuffle
-                }
-                
+                scoreArea
                 Spacer()
-                gameBody
+                gameBody.id(game.gameID)
             }
             deckBody
         }
         .padding(.horizontal)
         .navigationTitle("\(game.theme.name)")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(
-            trailing:
-                HStack {
-                    restart
-                    newGame
-                })
-    }
-    
-    var newGame: some View {
-        Button {
-            // FIXME: -
-        } label: {
-            Text("New")
+        .navigationBarItems(trailing: HStack {
+            shuffle
+            restart
+        })
+        .alert("Confirm to Restart?", isPresented: $restartAlertShown) {
+            Button("OK") {
+                withAnimation {
+                    score = 0
+                    game.restart()
+                }
+            }
+            Button("Cancel", role: .cancel) {
+                restartAlertShown = false
+            }
         }
     }
     
     var restart: some View {
         Button {
-            withAnimation {
-                game.restart()
-            }
+            restartAlertShown = true
         } label: {
-            Image(systemName: "restart.circle")
-        }
+            Image(systemName: "arrow.counterclockwise")
+        }.disabled(!game.isPlaying)
     }
     
     var shuffle: some View {
-        Button("shuffle") {
+        Button {
             withAnimation {
                 game.shuffle()
             }
-        }
+        } label: {
+            Image(systemName: "arrow.triangle.2.circlepath.doc.on.clipboard")
+        }.disabled(!game.isPlaying)
     }
 
+    var scoreArea: some View {
+        HStack {
+            Text("score:")
+            Text("\(score)")
+                .frame(minWidth: 30)
+                .foregroundColor(score < 0 ? .red : .blue)
+        }
+        .frame(minWidth: 80)
+        .font(.title2)
+        .overlay {
+            Text("\(scoreDiff > 0 ? "+" : "")\(scoreDiff)")
+                .font(.title2)
+                .offset(x: 50)
+                .foregroundColor(scoreDiff < 0 ? .red : .blue)
+                .scaleEffect(scoreDiffTextScale)
+                .opacity(scoreDiffTextOpacity)
+                .onChange(of: game.score) { newValue in
+                    scoreDiff = newValue - score
+                    if scoreDiff != 0 {
+                        scoreDiffTextScale = 1.2
+                        scoreDiffTextOpacity = 1
+                        withAnimation(.easeInOut(duration: 1)) {
+                            scoreDiffTextOpacity = 0
+                            scoreDiffTextScale = 1
+                            
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                            score += scoreDiff
+                        }
+                    }
+                }
+        }
+    }
     
     var gameBody: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in

@@ -18,6 +18,7 @@
 		EE927D3427EDBD4A0058D01D /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */; };
 		EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4927BA6550004A7639 /* Cardify.swift */; };
 		EEB25F4C27C268F3004A7639 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4B27C268F3004A7639 /* FlipView.swift */; };
+		EECE53B32807D659005D692B /* SwiftUIAnimationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECE53B22807D659005D692B /* SwiftUIAnimationObserver.swift */; };
 		EEDD6EB2278D08080057C4F4 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD6EB1278D08080057C4F4 /* AspectVGrid.swift */; };
 		EEDD6EB6279A200B0057C4F4 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD6EB5279A200B0057C4F4 /* Pie.swift */; };
 		EEE99268270941840062156A /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE99267270941840062156A /* MemoryGame.swift */; };
@@ -38,6 +39,7 @@
 		EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		EEB25F4927BA6550004A7639 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		EEB25F4B27C268F3004A7639 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
+		EECE53B22807D659005D692B /* SwiftUIAnimationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAnimationObserver.swift; sourceTree = "<group>"; };
 		EEDD6EB1278D08080057C4F4 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		EEDD6EB5279A200B0057C4F4 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		EEE99267270941840062156A /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */,
+				EECE53B22807D659005D692B /* SwiftUIAnimationObserver.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */,
 				EEDD6EB2278D08080057C4F4 /* AspectVGrid.swift in Sources */,
 				EEB25F4C27C268F3004A7639 /* FlipView.swift in Sources */,
+				EECE53B32807D659005D692B /* SwiftUIAnimationObserver.swift in Sources */,
 				EE429E7027E9B542001398D9 /* ThemeStore.swift in Sources */,
 				EE28F89E267B794F00E79848 /* CardView.swift in Sources */,
 				EE28F88F267B31AD00E79848 /* MemorizeApp.swift in Sources */,
@@ -249,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -304,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -324,12 +328,12 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.standford.cs193p.prosper.Memorize;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liaohongxing.Memorize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -347,12 +351,12 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.standford.cs193p.prosper.Memorize;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liaohongxing.Memorize;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

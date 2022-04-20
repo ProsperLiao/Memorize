@@ -53,6 +53,11 @@ class EmojiMemoryGame: ObservableObject {
     
     @Published private var dealt = Set<Int>()
     
+    var isPlaying: Bool { !dealt.isEmpty }
+    
+    var gameID: UUID {
+        model.id
+    }
     
     func deal(_ card: EmojiMemoryGame.Card) {
         dealt.insert(card.id)
@@ -61,7 +66,6 @@ class EmojiMemoryGame: ObservableObject {
     func isUnDealt(_ card: EmojiMemoryGame.Card) -> Bool {
         !dealt.contains(card.id)
     }
-
     
     // MARK: - Intent(s)
     func shuffle() {

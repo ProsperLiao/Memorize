@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct Theme: Equatable, Identifiable, Hashable, Codable {
+    static let minPairOfCardsCount = 2
+    
     let id: Int
     var name: String
     var emojis: String {
         didSet {
-            if numberOfPairOfCards > emojis.count || emojis.count <= 2 {
+            if numberOfPairOfCards > emojis.count || emojis.count <= Theme.minPairOfCardsCount {
                 numberOfPairOfCards = emojis.count
             }
         }

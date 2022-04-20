@@ -20,7 +20,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     private(set) var score = 0
     
+    private(set) var id: UUID
+    
     init(numberOfCards: Int, createCardContent: (Int) -> CardContent) {
+        id = UUID()
         cards = [Card]()
         for pairIndex in 0..<numberOfCards {
             let content = createCardContent(pairIndex)
@@ -41,31 +44,34 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[potentialMatchIndex].content == cards[chosenIndex].content {
                     cards[potentialMatchIndex].isMatched = true
                     cards[chosenIndex].isMatched = true
-                    var earned = 2
+                    var earned = 0
                     
-                    if let dateOfTheOneAndOnlyFaceUpCardToggled = dateOfTheOneAndOnlyFaceUpCardToggled {
-                        let duration = abs(round(dateOfTheOneAndOnlyFaceUpCardToggled.timeIntervalSinceNow))
-                        let scale = Int(max(10 - duration, 1))
-                        earned *= scale
+                    if cards[potentialMatchIndex].bonusTimeLimit > 0 {
+                        earned += lround(10.0 * cards[potentialMatchIndex].bonusTimeRemaining / cards[potentialMatchIndex].bonusTimeLimit)
                     }
+                    if cards[chosenIndex].bonusTimeLimit > 0 {
+                        earned += lround(10.0 * cards[chosenIndex].bonusTimeRemaining / cards[chosenIndex].bonusTimeLimit)
+                    }
+                    
+                    earned = min(max(1, earned), 20)
+                    
                     score += earned
                 } else {
                     var penalized = 0
-                    if cards[potentialMatchIndex].isSeen {
-                        penalized += 1
-                    }
-                    if cards[chosenIndex].isSeen {
-                        penalized += 1
+                    if cards[potentialMatchIndex].isSeen || cards[chosenIndex].isSeen {
+                        if cards[potentialMatchIndex].bonusTimeLimit > 0 {
+                            penalized -= lround(10.0 * (1 - cards[potentialMatchIndex].bonusTimeRemaining / cards[potentialMatchIndex].bonusTimeLimit))
+                        }
+                        if cards[chosenIndex].bonusTimeLimit > 0 {
+                            penalized -= lround(10.0 * (1 - cards[chosenIndex].bonusTimeRemaining / cards[chosenIndex].bonusTimeLimit))
+                        }
+                        
+                        penalized = min(max(-20, penalized), -1)
                     }
                     cards[chosenIndex].isSeen = true
                     cards[potentialMatchIndex].isSeen = true
                     
-                    if let dateOfTheOneAndOnlyFaceUpCardToggled = dateOfTheOneAndOnlyFaceUpCardToggled {
-                        let duration = abs(round(dateOfTheOneAndOnlyFaceUpCardToggled.timeIntervalSinceNow))
-                        let scale = Int(max(10 - duration, 1))
-                        penalized *= scale
-                    }
-                    score -= penalized
+                    score += penalized
                 }
 
                 dateOfTheOneAndOnlyFaceUpCardToggled = nil

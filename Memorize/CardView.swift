@@ -14,6 +14,10 @@ struct CardView: View {
     
     @State private var animatedBonusRemaining: Double = 0
     
+    @State private var scaleForMatched: CGFloat = 1
+    
+    @State private var isRotating = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -28,17 +32,34 @@ struct CardView: View {
                         .padding(DrawingConstants.piePadding)
                         .opacity(DrawingConstants.pieOpacity)
                 }
+                
                 Text(card.content)
-                    .rotationEffect(Angle(degrees: card.isMatched ? 360 : 0))
-                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
+                    .rotationEffect(Angle(degrees: isRotating ? 360 : 0))
+                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: isRotating)
                     .font(Font.system(size: DrawingConstants.fontSize))
                     .scaleEffect(scale(thatFits: geometry.size))
+                    .onChange(of: card.isMatched) { isMatched in
+                        if isMatched {
+                            withAnimation(.linear(duration: 1)) {
+                                scaleForMatched = 1.5
+                            }
+                        }
+                    }
+                    .animationObserver(for: scaleForMatched, onComplete: {
+                        withAnimation(.linear(duration: 1)) {
+                            scaleForMatched = 1
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            isRotating = true
+                        }
+                    })
+
             }.cardify(isFaceUp: card.isFaceUp, color: color)
         }
     }
     
     private func scale(thatFits size: CGSize) -> CGFloat {
-        min(size.width, size.height) * DrawingConstants.fontSizeScale /  DrawingConstants.fontSize
+        scaleForMatched * min(size.width, size.height) * DrawingConstants.fontSizeScale /  DrawingConstants.fontSize
     }
     
     private struct DrawingConstants {

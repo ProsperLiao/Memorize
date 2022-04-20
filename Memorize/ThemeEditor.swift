@@ -15,21 +15,7 @@ struct ThemeEditor: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Text("Edit \(theme.name)")
-                Spacer()
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle")
-                }
-                .foregroundColor(.gray)
-            }
-            .padding(.init(top: 10, leading: 10, bottom: 5, trailing: 10))
-            .font(.system(size: 20))
-            
+        NavigationView {
             Form {
                 nameSection
                 numberOfCardsSection
@@ -38,7 +24,20 @@ struct ThemeEditor: View {
                 emojisSection
                 removedEmojisSection
             }
+            .navigationBarItems(trailing: close)
+            .navigationTitle("Edit \(theme.name)")
+            .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    var close: some View {
+        Button {
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Image(systemName: "xmark.circle")
+        }
+        .font(.system(size: 20))
+        .foregroundColor(.gray)
     }
     
     var nameSection: some View {
@@ -121,8 +120,8 @@ struct ThemeEditor: View {
     
     
     var numberOfCardsSection: some View {
-        var rangeStart = 2
-        if theme.emojis.count < 2 {
+        var rangeStart = Theme.minPairOfCardsCount
+        if theme.emojis.count < Theme.minPairOfCardsCount {
             rangeStart = theme.emojis.count
         }
         return Section {
