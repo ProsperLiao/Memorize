@@ -125,7 +125,7 @@ struct ThemeEditor: View {
             rangeStart = theme.emojis.count
         }
         return Section {
-            Stepper(value: $theme.numberOfPairOfCards, in: rangeStart...theme.emojis.count) {
+            Stepper(value: $theme.numberOfPairOfCards, in: rangeStart...min(ThemeConstants.pairsOfCardsLimit, theme.emojis.count)) {
                 Text("\(theme.numberOfPairOfCards)")
             }
         } header: {

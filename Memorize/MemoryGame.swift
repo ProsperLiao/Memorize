@@ -41,6 +41,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }),
            !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
             if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                // 分数的倍数因子, 卡片数越多，得分乘倍数，扣分除以倍数
+                let scaleFactor = ceil(Double(cards.count) / 10.0)
                 if cards[potentialMatchIndex].content == cards[chosenIndex].content {
                     cards[potentialMatchIndex].isMatched = true
                     cards[chosenIndex].isMatched = true
@@ -54,6 +56,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     }
                     
                     earned = min(max(1, earned), 20)
+                    earned = Int(Double(earned) * scaleFactor)
                     
                     score += earned
                 } else {
@@ -67,6 +70,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                         }
                         
                         penalized = min(max(-20, penalized), -1)
+                        penalized = Int(floor(Double(penalized) / scaleFactor))
                     }
                     cards[chosenIndex].isSeen = true
                     cards[potentialMatchIndex].isSeen = true

@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+struct ThemeConstants {
+    static let pairsOfCardsLimit = 15
+}
+
 struct Theme: Equatable, Identifiable, Hashable, Codable {
     static let minPairOfCardsCount = 2
     
@@ -112,6 +116,7 @@ class ThemeStore: ObservableObject {
             insertTheme(name: "Halloween", emojis: ["😈", "👹", "👺", "🤡", "💩", "👻", "💀", "☠️", "👽", "👾", "🤖", "🎃"].reduce("", {$0 + $1}), color: ThemeColor(first: Color(UIColor.gray)), numberOfPairOfCards: nil)
             insertTheme(name: "Ball", emojis: ["⚽️", "🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🏉"].reduce("", {$0 + $1}), color: ThemeColor(first: Color(UIColor.red), second: Color(UIColor.blue), isLinearGradient: true))
             insertTheme(name: "Flag", emojis: ["🚩", "🏳️‍🌈", "🇦🇴", "🇧🇸", "🇧🇼", "🇧🇧", "🇻🇬", "🇧🇳", "🇨🇦", "🇨🇳", "🇨🇽", "🇨🇨", "🇰🇲", "🇨🇬", "🇪🇪", "🇪🇨", "🇨🇷", "🇨🇰", "🇧🇫", "🇧🇯"].reduce("", {$0 + $1}), color : ThemeColor(first: Color(UIColor.purple)))
+            insertTheme(name: "Emoji", emojis: "😀🥹😅😂🤣😊😇🙃😉😍🥰😋😙😜🧐😎🤩🥳😟😕😡🤬🤯😳🥵🥶😱😭😓🤗🤮😵‍💫😬😪", color: ThemeColor(first: Color(UIColor.gray)))
         } else {
             print("Successfully loaded from UserDefault. Themes: \(themes)")
         }
@@ -151,7 +156,7 @@ class ThemeStore: ObservableObject {
     func insertTheme(name: String, emojis: String, color: ThemeColor, numberOfPairOfCards: Int? = nil, at index: Int = 0) -> Theme {
         let uniqueThemeId = (themes.max(by: { $0.id < $1.id })?.id ?? 0) + 1
         var numberOfPair = numberOfPairOfCards ?? emojis.count
-        numberOfPair = min(max(0, numberOfPair), emojis.count)
+        numberOfPair = min(max(0, numberOfPair), min(ThemeConstants.pairsOfCardsLimit, emojis.count))
         let safeEmojis = emojis.withNoRepeatedCharacters.filter({ $0.isEmoji })
         let theme = Theme(id: uniqueThemeId, name: name, emojis: safeEmojis, color: color, numberOfPairOfCards: numberOfPair)
         let safeIndex = min(max(0, index), themes.count)
