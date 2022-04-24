@@ -27,7 +27,7 @@ struct EmojiMemoryGameView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        let bodyView = ZStack(alignment: .bottom) {
             VStack {
                 scoreArea
                 Spacer()
@@ -36,23 +36,50 @@ struct EmojiMemoryGameView: View {
             deckBody
         }
         .padding(.horizontal)
-        .navigationTitle("\(game.theme.name)")
-        .navigationBarTitleDisplayMode(.inline)
+        .compatibleNavigationTitle(with: "\(game.theme.name)")
         .navigationBarItems(trailing: HStack {
             shuffle
             restart
         })
-        .alert(LocalizedStringKey("Confirm to Restart?"), isPresented: $restartAlertShown) {
-            Button("OK") {
-                withAnimation {
-                    score = 0
-                    game.restart()
+        
+        if #available(iOS 15.0, *) {
+            bodyView
+                .alert(LocalizedStringKey("Confirm to Restart?"), isPresented: $restartAlertShown) {
+                    Button(LocalizedStringKey("OK")) {
+                        withAnimation {
+                            score = 0
+                            game.restart()
+                        }
+                    }
+                    
+                    Button(LocalizedStringKey("Cancel"), role: .cancel) {
+                        restartAlertShown = false
+                    }
                 }
-            }
-            Button(LocalizedStringKey("Cancel"), role: .cancel) {
-                restartAlertShown = false
+        } else {
+            bodyView.alert(isPresented: $restartAlertShown) {
+                Alert(
+                    title: Text("Confirm to Restart?"),
+                    primaryButton: .default(
+                        Text("OK"),
+                        action: {
+                            withAnimation {
+                                score = 0
+                                game.restart()
+                            }
+                        }
+                    ),
+                    secondaryButton: .destructive(
+                        Text("Cancel"),
+                        action: {
+                            restartAlertShown = false
+                        }
+                    )
+                )
             }
         }
+        
+        
     }
     
     var restart: some View {
@@ -82,7 +109,7 @@ struct EmojiMemoryGameView: View {
         }
         .frame(minWidth: 80)
         .font(.title2)
-        .overlay {
+        .compatibleOverlay {
             Text("\(scoreDiff > 0 ? "+" : "")\(scoreDiff)")
                 .font(.title2)
                 .offset(x: 50)

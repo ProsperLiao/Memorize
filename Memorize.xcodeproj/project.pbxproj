@@ -16,6 +16,7 @@
 		EE429E7027E9B542001398D9 /* ThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE429E6F27E9B542001398D9 /* ThemeStore.swift */; };
 		EE85831628100D2D001812FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE85831428100D2D001812FF /* InfoPlist.strings */; };
 		EE85831928100D63001812FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE85831728100D63001812FF /* Localizable.strings */; };
+		EE8583202814F4DF001812FF /* CompatibleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85831F2814F4DF001812FF /* CompatibleViewModifier.swift */; };
 		EE927D2E27EDB4940058D01D /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D2D27EDB4940058D01D /* ThemeEditor.swift */; };
 		EE927D3427EDBD4A0058D01D /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */; };
 		EEB25F4A27BA6550004A7639 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB25F4927BA6550004A7639 /* Cardify.swift */; };
@@ -39,6 +40,7 @@
 		EE85831528100D2D001812FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE85831828100D63001812FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EE85831A28100EF4001812FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EE85831F2814F4DF001812FF /* CompatibleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibleViewModifier.swift; sourceTree = "<group>"; };
 		EE927D2D27EDB4940058D01D /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
 		EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		EEB25F4927BA6550004A7639 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				EE927D3327EDBD4A0058D01D /* UtilityExtensions.swift */,
 				EECE53B22807D659005D692B /* SwiftUIAnimationObserver.swift */,
+				EE85831F2814F4DF001812FF /* CompatibleViewModifier.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8583202814F4DF001812FF /* CompatibleViewModifier.swift in Sources */,
 				EE28F891267B31AD00E79848 /* EmojiMemoryGameView.swift in Sources */,
 				EE429E6E27E9B272001398D9 /* ThemeChooser.swift in Sources */,
 				EE927D3427EDBD4A0058D01D /* UtilityExtensions.swift in Sources */,
@@ -281,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -337,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -359,7 +363,7 @@
 				DEVELOPMENT_TEAM = A8UB7LJGV7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,7 +387,7 @@
 				DEVELOPMENT_TEAM = A8UB7LJGV7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Memorize/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -72,8 +72,7 @@ struct ThemeChooser: View {
             ThemeEditor(theme: $store.themes[themeToEdit])
         }
         .listStyle(PlainListStyle())
-        .navigationTitle(LocalizedStringKey("Emoji Theme List"))
-        .navigationBarTitleDisplayMode(.inline)
+        .compatibleNavigationTitle(with: LocalizedStringKey("Emoji Theme List"))
         .navigationBarItems(leading: editMode == .active ? nil : addButton, trailing: EditButton())
         .environment(\.editMode, $editMode)
         
@@ -117,7 +116,7 @@ struct ThemeChooser: View {
                 Rectangle()
                     .frame(width: 8, height: 8)
                     .foregroundColor(.green)
-                    .overlay {
+                    .compatibleOverlay {
                         Rectangle()
                             .stroke(Color.gray, lineWidth: 1)
                     }

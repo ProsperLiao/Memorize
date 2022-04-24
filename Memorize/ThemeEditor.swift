@@ -25,8 +25,7 @@ struct ThemeEditor: View {
                 removedEmojisSection
             }
             .navigationBarItems(trailing: close)
-            .navigationTitle(LocalizedStringKey("Edit \(theme.name)"))
-            .navigationBarTitleDisplayMode(.inline)
+            .compatibleNavigationTitle(with: LocalizedStringKey("Edit \(theme.name)"))
         }
     }
     
