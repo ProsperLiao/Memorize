@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EE28F88B267B31AD00E79848 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE28F88B267B31AD00E79848 /* Emojis配对.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emojis配对.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE28F88E267B31AD00E79848 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		EE28F890267B31AD00E79848 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		EE28F892267B31AF00E79848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		EE28F88C267B31AD00E79848 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE28F88B267B31AD00E79848 /* Memorize.app */,
+				EE28F88B267B31AD00E79848 /* Emojis配对.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EE28F88A267B31AD00E79848 /* Memorize */ = {
+		EE28F88A267B31AD00E79848 /* Emojis配对 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE28F89A267B31AF00E79848 /* Build configuration list for PBXNativeTarget "Memorize" */;
+			buildConfigurationList = EE28F89A267B31AF00E79848 /* Build configuration list for PBXNativeTarget "Emojis配对" */;
 			buildPhases = (
 				EE28F887267B31AD00E79848 /* Sources */,
 				EE28F888267B31AD00E79848 /* Frameworks */,
@@ -136,9 +136,9 @@
 			);
 			dependencies = (
 			);
-			name = Memorize;
+			name = "Emojis配对";
 			productName = Memorize;
-			productReference = EE28F88B267B31AD00E79848 /* Memorize.app */;
+			productReference = EE28F88B267B31AD00E79848 /* Emojis配对.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -169,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EE28F88A267B31AD00E79848 /* Memorize */,
+				EE28F88A267B31AD00E79848 /* Emojis配对 */,
 			);
 		};
 /* End PBXProject section */
@@ -412,7 +412,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE28F89A267B31AF00E79848 /* Build configuration list for PBXNativeTarget "Memorize" */ = {
+		EE28F89A267B31AF00E79848 /* Build configuration list for PBXNativeTarget "Emojis配对" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EE28F89B267B31AF00E79848 /* Debug */,
