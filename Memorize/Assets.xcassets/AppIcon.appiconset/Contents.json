@@ -1,115 +1,115 @@
 {
   "images" : [
     {
-      "filename" : "memorize_iconiPadNotifications_20pt@2x.png",
+      "filename" : "memorize_icon2iPadNotifications_20pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "memorize_iconiPhoneNotification_20pt@3x.png",
+      "filename" : "memorize_icon2iPhoneNotification_20pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight5_29pt.png",
+      "filename" : "memorize_icon2iPadSpootlight5_29pt.png",
       "idiom" : "iphone",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight5_29pt@2x.png",
+      "filename" : "memorize_icon2iPadSpootlight5_29pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "memorize_iconiPhoneSpootlight5_29pt@3x.png",
+      "filename" : "memorize_icon2iPhoneSpootlight5_29pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight7_40pt@2x.png",
+      "filename" : "memorize_icon2iPadSpootlight7_40pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "memorize_iconiPhoneSpootlight7_40pt@3x.png",
+      "filename" : "memorize_icon2iPhoneSpootlight7_40pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "memorize_iconiPhoneApp_60pt@2x.png",
+      "filename" : "memorize_icon2iPhoneApp_60pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "memorize_iconiPhoneApp_60pt@3x.png",
+      "filename" : "memorize_icon2iPhoneApp_60pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "memorize_iconiPadNotifications_20pt.png",
+      "filename" : "memorize_icon2iPadNotifications_20pt.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "memorize_iconiPadNotifications_20pt@2x-1.png",
+      "filename" : "memorize_icon2iPhoneNotification_20pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight5_29pt-1.png",
+      "filename" : "memorize_icon2iPadSpootlight5_29pt-1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight5_29pt@2x-1.png",
+      "filename" : "memorize_icon2iPhoneSpootlight5_29pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight7_40pt.png",
+      "filename" : "memorize_icon2iPadSpootlight7_40pt.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "memorize_iconiPadSpootlight7_40pt@2x-1.png",
+      "filename" : "memorize_icon2iPhoneSpootlight7_40pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "memorize_iconiPadApp_76pt.png",
+      "filename" : "memorize_icon2iPadApp_76pt.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "memorize_iconiPadApp_76pt@2x.png",
+      "filename" : "memorize_icon2iPadApp_76pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "memorize_iconiPadProApp_83.5pt@2x.png",
+      "filename" : "memorize_icon2iPadProApp_83.5pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "memorize_iconstore_1024pt.png",
+      "filename" : "memorize_icon2store_1024pt.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
